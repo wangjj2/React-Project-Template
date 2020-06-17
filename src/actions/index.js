@@ -3,15 +3,11 @@ export const SetProfile = payload => ({
   payload
 })
 
-// export const setVisibilityFilter = filter => ({
-//   type: 'SET_VISIBILITY_FILTER',
-//   filter
-// })
-
-// export const toggleTodo = id => ({
-//   type: 'TOGGLE_TODO',
-//   id
-// })
+export const SetData = (category, payload) => ({
+  type: 'SET_DATA',
+  category,
+  payload
+})
 
 // export const VisibilityFilters = {
 //   SHOW_ALL: 'SHOW_ALL',

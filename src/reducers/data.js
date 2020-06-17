@@ -1,21 +1,22 @@
-const data = (state = [], action) => {
-    switch (action.type) {
-    //   case 'ADD_TODO':
-    //     return [
-    //       ...state,
-    //       {
-    //         id: action.id,
-    //         text: action.text,
-    //         completed: false
-    //       }
-    //     ]
-    //   case 'TOGGLE_TODO':
-    //     return state.map(todo =>
-    //       todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-    //     )
-      default:
-        return state
-    }
+const defaultState = {
+  history: [],
+  education: [],
+  projects: [],
+  skills: [],
+  interests: []
+}
+const data = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'SET_DATA':
+      console.log('in reducer', state, action)
+      return {
+        ...state,
+        [action.category]: action.payload,
+      }
+    case 'CLEAR_DATA':
+      return defaultState
+    default:
+      return state
   }
-  
-  export default data
+}
+export default data

@@ -1,18 +1,15 @@
 import React from 'react';
-import { AppContainer, BorderedWidget } from './style';
-import { Row } from './Components/GridStyleObjects'
+import { AppContainer } from './style';
 import TitleWidget from './Components/TitleWidget';
+import SearchableList from './Components/SearchableList';
 
 const App = () => {
     return (
         <div className="container-fluid">
             <AppContainer>
                 <TitleWidget />
-                <Row justification='center'>
-                    <BorderedWidget>
-                        test
-                    </BorderedWidget>
-                </Row>
+                <SearchableList category="history" title="Work Experience" />
+                <SearchableList category="education" title="Education and Training" />
             </AppContainer>
         </div>
     );

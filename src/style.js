@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Col} from './Components/GridStyleObjects'
+import { Col } from './Components/GridStyleObjects'
 
 export const AppContainer = styled.div`
   background-color: #282c34;
@@ -14,4 +14,19 @@ export const BorderedWidget = styled(Col)`
 `;
 export const Header = styled.header`
     font-size: calc(16px + 2vmin);
+`
+
+export const Title = styled.header`
+    font-size: 18px;
+    font-weight: 600;
+`
+
+export const Subtitle = styled.header`
+    font-size: 14px;
+    font-weight: 200;
+`
+
+export const Date = styled.header`
+    font-size: 18px;
+    font-weight: 600;
 `

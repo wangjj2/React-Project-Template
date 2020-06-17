@@ -70,9 +70,6 @@ const TitleWidget = ({ setProfile, name, address, phone, email }) => {
                     </Row>
                 </BorderedWidget>
             </Row>
-            <Row justification="center">
-                <Header>Work Experience</Header>
-            </Row>
         </>
     )
 }
