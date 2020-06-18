@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Row } from './GridStyleObjects'
-import { Header } from '../style'
+import { Header, SpacedBox } from '../style'
 import Axios from 'axios'
 import DescriptionCard from './DescriptionCard'
 import { SetData } from '../actions'
@@ -19,29 +19,44 @@ class SearchableList extends React.Component {
                 // handle success
                 console.log(response);
                 this.props.setData(response.data)
-                this.setState({filteredList:response.data})
+                this.setState({ filteredList: response.data })
             })
             .catch((error) => {
                 // handle error
                 console.log(error);
             })
     }
+    componentDidUpdate(prevProps) {
+        if (this.props.filter !== prevProps.filter) {
+            const unfilteredList = this.props[this.props.category]
+            const filteredList = unfilteredList.filter(this.props.filter)
+            this.setState({ filteredList });
+        }
+    }
     render() {
         return (<>
             <Row justification="center">
                 <Header>{this.props.title}</Header>
             </Row>
+
             {this.state.filteredList && this.state.filteredList.length > 0 ?
                 this.state.filteredList.map((card, index) => {
                     const { title, subtitle, startDate, endDate, points } = card
-                    return <DescriptionCard key={`${title}${index}`} title={title} subtitle={subtitle} startDate={startDate} endDate={endDate} points={points} />
+                    return <Row key={`${title}${index}`} justification="center">
+                        <DescriptionCard title={title} subtitle={subtitle} startDate={startDate} endDate={endDate} points={points} />
+                    </Row>
                 }) :
-                "Nothing to Show"}
+                <SpacedBox justification="center">
+                    Nothing matches that search criteria
+                </SpacedBox>
+            }
+
         </>)
     }
 }
 const mstp = (state, ownProps) => ({
-    [ownProps.category]: state.data[ownProps.category]
+    [ownProps.category]: state.data[ownProps.category],
+    filter: state.data.filter
 })
 
 const mdtp = (dispatch, ownProps) => ({

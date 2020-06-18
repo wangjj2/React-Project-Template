@@ -5,24 +5,24 @@ import { BorderedWidget, Title, Subtitle, Date } from '../style'
 const DescriptionCard = ({ startDate, endDate, title, subtitle, points }) => {
     return (
         <>
-            <BorderedWidget>
-                <Row>
+            <BorderedWidget className="col-md-11">
+                {title && <Row>
                     <Col tablet={10}>
                         <Row>
                             <Col>
                                 <Title>{title}</Title>
                             </Col>
                         </Row>
-                        <Row>
+                        {subtitle && <Row>
                             <Col>
                                 <Subtitle>{subtitle}</Subtitle>
                             </Col>
-                        </Row>
+                        </Row>}
                     </Col>
                     {startDate && <Col tablet={2}>
                         <Date>{startDate} - {endDate ? endDate : "Current"}</Date>
                     </Col>}
-                </Row>
+                </Row>}
                 {points && <Row>
                     <Col>
                         <ul>

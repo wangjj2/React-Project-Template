@@ -27,7 +27,7 @@ const TitleWidget = ({ setProfile, name, address, phone, email }) => {
                     </Row>
                 </BorderedWidget>
             </Row>
-            <Row justification="between">
+            <Row justification="around">
                 <BorderedWidget tablet={4} mobile={12}>
                     {address ? <>
                         <Row>

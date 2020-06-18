@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Row = (props) =>{
-    return (<div className={`row${props.justification?` justify-content-${props.justification}`:""}`}>
+    return (<div className={`row${props.justification?` justify-content-${props.justification}`:""}${props.className?` ${props.className}`:""}`}>
         {props.children}
     </div>)
 }

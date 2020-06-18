@@ -9,8 +9,7 @@ export const SetData = (category, payload) => ({
   payload
 })
 
-// export const VisibilityFilters = {
-//   SHOW_ALL: 'SHOW_ALL',
-//   SHOW_COMPLETED: 'SHOW_COMPLETED',
-//   SHOW_ACTIVE: 'SHOW_ACTIVE'
-// }
+export const SetFilter = (payload) => ({
+  type: "SET_FILTER",
+  payload
+})
