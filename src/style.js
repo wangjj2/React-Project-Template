@@ -25,6 +25,10 @@ export const SpacedBox = styled(Row)`
 export const Header = styled.header`
     font-size: calc(16px + 2vmin);
 `
+export const NameHeader = styled.header`
+    font-size: calc(16px + 5vmin);
+    font-family: fantasy;
+`
 
 export const Title = styled.header`
     font-size: 18px;

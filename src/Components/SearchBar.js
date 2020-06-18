@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
     render() {
         return (<>
             <Row justification="center">
-                <BorderedWidget className="col-md-11" background="silver" color="black">
+                <BorderedWidget className="col-md-11">
                     <form>
                         <Row>
                             <Col tablet={1}>

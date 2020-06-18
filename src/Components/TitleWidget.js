@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import { SetProfile } from '../actions'
 import { Row, Col } from './GridStyleObjects'
-import { BorderedWidget, Header } from '../style'
+import { NameHeader } from '../style'
 import Axios from 'axios'
 
 const TitleWidget = ({ setProfile, name, address, phone, email }) => {
@@ -21,14 +21,14 @@ const TitleWidget = ({ setProfile, name, address, phone, email }) => {
     return (
         <>
             <Row justification="center">
-                <BorderedWidget tablet={4}>
+                <Col tablet={4}>
                     <Row justification="center">
-                        <Header>{name}</Header>
+                        <NameHeader>{name}</NameHeader>
                     </Row>
-                </BorderedWidget>
+                </Col>
             </Row>
             <Row justification="around">
-                <BorderedWidget tablet={4} mobile={12}>
+                <Col tablet={6} mobile={12}>
                     {address ? <>
                         <Row>
                             <Col>
@@ -51,8 +51,8 @@ const TitleWidget = ({ setProfile, name, address, phone, email }) => {
                             </Col>
                         </Row>
                     </> : "No Currently Listed Address"}
-                </BorderedWidget>
-                <BorderedWidget tablet={4} mobile={12}>
+                </Col>
+                <Col tablet={2} mobile={12}>
                     <Row>
                         <Col>
                             Contact Information:
@@ -68,7 +68,7 @@ const TitleWidget = ({ setProfile, name, address, phone, email }) => {
                             Email: {email}
                         </Col>
                     </Row>
-                </BorderedWidget>
+                </Col>
             </Row>
         </>
     )
