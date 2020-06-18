@@ -1,5 +1,5 @@
 export const textFilter = (keyword) => (listObject) => {
-    let regex = new RegExp(keyword, "i");
+    let regex = new RegExp(keyword.trim(), "i");
     return Object.values(listObject).some(val => regex.test(val) || (Array.isArray(val) && val.some(subVal => regex.test(subVal))))
 }
 
