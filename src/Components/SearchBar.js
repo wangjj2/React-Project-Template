@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
             type: "text",
             filter: textFilter
         }
+        this.textInput = React.createRef();
     }
     searchBoxHandler = (event) => {
         const key = event.target.value
@@ -22,8 +23,10 @@ class SearchBar extends React.Component {
     searchTypeHandler = (event) => {
         this.setState({
             type: event.target.value,
-            filter: event.target.value === "text" ? textFilter : dateFilter
+            filter: event.target.value === "text" ? textFilter : dateFilter,
         });
+        this.props.setFilter(this.state.filter(""))
+        this.formInput.value = '';
     }
     render() {
         return (<>
@@ -59,7 +62,7 @@ class SearchBar extends React.Component {
                             </label>
                             </Col>
                         </Row>
-                        <StyledSearchBar type={this.state.type} placeholder={"Handy Dandy Search Function"} onChange={this.searchBoxHandler}></StyledSearchBar>
+                        <StyledSearchBar ref= {el => this.formInput = el} type={this.state.type} placeholder={"Handy Dandy Search Function"} onChange={this.searchBoxHandler}></StyledSearchBar>
                     </form>
                 </BorderedWidget>
             </Row>

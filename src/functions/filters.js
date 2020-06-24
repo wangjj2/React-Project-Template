@@ -4,9 +4,11 @@ export const textFilter = (keyword) => (listObject) => {
 }
 
 export const dateFilter = (keyword) => (listObject) => {
+    if(!keyword){
+        return true
+    }
     const startDate = new Date ( listObject.startDate);
     const endDate = new Date (listObject.endDate);
     const searchDate = new Date (keyword)
-    console.log(endDate, searchDate,  endDate >= searchDate)
     return startDate <= searchDate && (endDate == "Invalid Date" ? true: endDate >= searchDate)
 }
